@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CarMode</string>
+    <string name="welcomeTop">Welcome to CarMode!</string>
+    <string name="welcomeDescription">Let\'s focus on driving and ignore distractions!</string>
+    <string name="setup">setup</string>
+    <string name="saveSettings">Save Settings</string>
+    <string name="settingsTop">Welcome to settings, here you can enable/disable desired applications.</string>
+    <string name="mainActivityTop">Here are your carMode apps</string>
+    <string name="tempString"><![CDATA[Very early View, on/off & apps needed...]]></string>
+</resources>
