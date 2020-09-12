@@ -20,6 +20,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.Space;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -46,6 +47,8 @@ public class SetupActivity extends AppCompatActivity {
         String message = intent.getStringExtra(WelcomeActivity.EXTRA_MESSAGE);
 
         List<ResolveInfo> appList = getInstalledAppList(this);
+        ScrollView scroll  = new ScrollView((this));
+
         LinearLayout linearLayout = new LinearLayout(this);
         linearLayout.setOrientation(LinearLayout.VERTICAL);
 
@@ -78,7 +81,8 @@ public class SetupActivity extends AppCompatActivity {
         saveSettings.setText(R.string.saveSettings);
         linearLayout.addView(saveSettings);
 
-        setContentView(linearLayout);
+        scroll.addView(linearLayout);
+        setContentView(scroll);
     }
 
     public List<ResolveInfo> getInstalledAppList(Context context){
