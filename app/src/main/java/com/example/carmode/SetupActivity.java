@@ -28,6 +28,9 @@ public class SetupActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        if (WelcomeActivity.FULL_SCREEN_FLAG){
+            FullScreen.hideSystemUI(getWindow());
+        }
 
         // Get the Intent that started this activity and extract the string
         Intent intent = getIntent();

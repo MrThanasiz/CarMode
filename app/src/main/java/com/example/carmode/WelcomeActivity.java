@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class WelcomeActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.carmode.MESSAGE";
+    public static Boolean FULL_SCREEN_FLAG = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,32 +25,15 @@ public class WelcomeActivity extends AppCompatActivity {
         onOff.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (isChecked){
-                    hideSystemUI();
+                    FullScreen.hideSystemUI(getWindow());
+                    FULL_SCREEN_FLAG = true;
                 }
                 else{
-                    showSystemUI();
+                    FullScreen.showSystemUI(getWindow());
+                    FULL_SCREEN_FLAG = false;
                 }
             }
         });
-    }
-
-    private void hideSystemUI() {
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getWindow().getDecorView().setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        |View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        |View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
-                        |View.SYSTEM_UI_FLAG_FULLSCREEN
-                        |View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-
-        );
-    }
-
-    private void showSystemUI() {
-        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getWindow().getDecorView().setSystemUiVisibility(View.VISIBLE);
     }
 
     /** Called when the user taps the Send button */
