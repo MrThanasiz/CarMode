@@ -34,6 +34,7 @@ import java.util.Map;
 public class SetupActivity extends AppCompatActivity {
 
     public static final String EXTRA_MESSAGE = "com.example.carmode.MESSAGE";
+    public static final List<ResolveInfo> allowedApps = new ArrayList<ResolveInfo>();
     private Switch appSwitch;
 
     @Override
@@ -52,7 +53,6 @@ public class SetupActivity extends AppCompatActivity {
         setupText.setText(R.string.settingsTop);
         linearLayout.addView(setupText);
 
-        final List<ResolveInfo> allowedApps = new ArrayList<ResolveInfo>();
         for(final ResolveInfo item : appList) {
             Switch appSwitch = new Switch(this);
             appSwitch.setId(ViewCompat.generateViewId());
